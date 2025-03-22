@@ -1,0 +1,159 @@
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  background-color: white;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1100;
+}
+
+@media (min-width: 769px) {
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
+.filter-group {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.filter-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.price-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.price-option input {
+  display: none;
+}
+
+.price-option span {
+  font-size: 14px;
+  color: #333;
+  position: relative;
+  padding-left: 30px;
+}
+
+.price-option input:checked + span {
+  font-weight: bold;
+  color: #000;
+}
+
+.price-option input:checked + span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-gap: 10px;
+  margin-top: 10px;
+}
+
+.color-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-label input {
+  display: none;
+}
+
+.color-button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color-button.selected {
+  border: 2px solid #000;
+}
+
+.filter-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.apply,
+.reset {
+  background: none;
+  color: black;
+  border: 4px solid;
+  font-weight: bold;
+}
+
+.apply:hover,
+.reset:hover {
+  background-color: #000;
+  color: white;
+}
+
+.revert {
+  background: none;
+  border: none;
+  font-size: xx-large;
+}
